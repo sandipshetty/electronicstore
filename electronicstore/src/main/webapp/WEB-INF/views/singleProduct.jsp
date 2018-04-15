@@ -14,7 +14,7 @@
 				<h3>${product.productName}</h3>
 				<h4>&#x20b9; ${product.price}</h4>
 				<p>${product.description}</p>
-				<br> <a href="#" class="btn-lg btn-success">Buy Now</a> <a
+				<br> <a href="${contextRoot}/user/shippingaddress" class="btn-lg btn-success">Buy Now</a> <a
 					href="${contextRoot}/user/addtocart?id=${product.productId}" class="btn btn-info btn-lg"> <span
 					class="glyphicon glyphicon-shopping-cart"></span> Add to Cart
 				</a>

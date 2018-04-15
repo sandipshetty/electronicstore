@@ -22,7 +22,7 @@
 								<th>ID</th>
 								<th>Category Name</th>
 								<th>Status</th>
-								<th>delete</th>
+								<th>Delete</th>
 							</tr>
 						</thead>
 						<tbody>

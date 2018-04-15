@@ -44,6 +44,16 @@ public class UserDAO
 		session.close();
 		return user;
 	}
+	public List<User> getUserByRole(String role)
+	{
+		Session session=sessionFactory.openSession();
+		Query query=session.createQuery("from User u where u.role=:role");
+		query.setParameter("role", role);
+		List<User> users=query.list();
+		session.close();
+		return users;
+	}
+	
 	public List<User> getUserDetails()
 	{
 		Session session=sessionFactory.openSession();

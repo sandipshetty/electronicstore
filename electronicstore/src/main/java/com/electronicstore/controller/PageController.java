@@ -27,27 +27,18 @@ public class PageController {
 	@Autowired
 	ProductDAO productsDAO;
 
-	@Autowired
-	CartDAO cartDAO;
-
-	@Autowired
-	UserDAO userDAO;
-
 	@RequestMapping(value = { "/", "/home", "/index" })
-	public ModelAndView index(Principal principal) {
+	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "Home");
 		mv.addObject("userClickHome", true);
 		// Passing Category Details
 		List<Category> categories = categoryDAO.getActiveCategoryDetails();
 		mv.addObject("categories", categories);
+		// passing Product Details
+		List<Product> products = productsDAO.getActiveProductDetails();
+		mv.addObject("products", products);
 
-		// getting cart details
-		String username = principal.getName();
-		User user = userDAO.getUserByUsername(username);
-		List<Cart> cart = cartDAO.getCartByUserId(user.getUserId());
-		int cartitems = cart.size();
-		mv.addObject("cartitems",cartitems);
 		return mv;
 	}
 
@@ -68,7 +59,7 @@ public class PageController {
 	}
 
 	@RequestMapping(value = "/show/all/products")
-	public ModelAndView showAllProducts(Principal principal) {
+	public ModelAndView showAllProducts() {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("title", "All Products");
 		mv.addObject("userClickAllProducts", true);
@@ -79,20 +70,12 @@ public class PageController {
 		// passing Products details
 		List<Product> products = productsDAO.getActiveProductDetails();
 		mv.addObject("products", products);
-		
-		// getting cart details
-				String username = principal.getName();
-				User user = userDAO.getUserByUsername(username);
-				List<Cart> cart = cartDAO.getCartByUserId(user.getUserId());
-				int cartitems = cart.size();
-				mv.addObject("cartitems",cartitems);
-				
 
 		return mv;
 	}
 
 	@RequestMapping(value = "/show/category/{id}/products")
-	public ModelAndView showCategoryProducts(@PathVariable("id") int id,Principal principal) {
+	public ModelAndView showCategoryProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("userClickCategoryProducts", true);
 
@@ -109,18 +92,12 @@ public class PageController {
 		// passing product details Category wise
 		List<Product> products = productsDAO.getActiveProductByCategory(id);
 		mv.addObject("products", products);
-		
-		// getting cart details
-		String username = principal.getName();
-		User user = userDAO.getUserByUsername(username);
-		List<Cart> cart = cartDAO.getCartByUserId(user.getUserId());
-		int cartitems = cart.size();
-		mv.addObject("cartitems",cartitems);
+
 		return mv;
 	}
 
 	@RequestMapping(value = "/viewproduct/{id}")
-	public ModelAndView showSingleProducts(@PathVariable("id") int id,Principal principal) {
+	public ModelAndView showSingleProducts(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("userClickSingleProduct", true);
 
@@ -132,19 +109,11 @@ public class PageController {
 		Product product = productsDAO.getProductById(id);
 		mv.addObject("product", product);
 		mv.addObject("title", product.getProductName());
-
-		// getting cart details
-				String username = principal.getName();
-				User user = userDAO.getUserByUsername(username);
-				List<Cart> cart = cartDAO.getCartByUserId(user.getUserId());
-				int cartitems = cart.size();
-				mv.addObject("cartitems",cartitems);
-
 		return mv;
 	}
 
-	@RequestMapping(value = "/serach/product")
-	public ModelAndView showSearchedProducts(@RequestParam("search") String search,Principal principal) {
+	@RequestMapping(value = "/search/product")
+	public ModelAndView showSearchedProducts(@RequestParam("search") String search) {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("userSearchProduct", true);
 
@@ -157,14 +126,6 @@ public class PageController {
 		mv.addObject("products", products);
 		mv.addObject("title", search);
 		mv.addObject("search", search);
-		
-		// getting cart details
-				String username = principal.getName();
-				User user = userDAO.getUserByUsername(username);
-				List<Cart> cart = cartDAO.getCartByUserId(user.getUserId());
-				int cartitems = cart.size();
-				mv.addObject("cartitems",cartitems);
-
 		return mv;
 	}
 

@@ -16,7 +16,7 @@ public class CategoryTest {
 	       context.refresh();	//Bean created
 	       
 	       //Inserting a Category Object
-	       CategoryDAO categoryDAO = (CategoryDAO)context.getBean("categoryDAO"); //We get the bean in object format, hence Convert it into CategoryDAO format.    
+	      // CategoryDAO categoryDAO = (CategoryDAO)context.getBean("categoryDAO"); //We get the bean in object format, hence Convert it into CategoryDAO format.    
 	       //The same name we gave in the configuration class i.e. categoryDAO
 	      // Category category=new Category();
 	       //category.setActive(true);

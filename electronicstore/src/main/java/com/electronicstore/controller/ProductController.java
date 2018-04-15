@@ -56,6 +56,7 @@ public class ProductController {
 		// passing all the product Details
 		List<Product> products = productDAO.getProductDetailsByUserId(user.getUserId());
 		mv.addObject("products", products);
+		mv.addObject("user",user);
 		return mv;
 	}
 
@@ -73,7 +74,7 @@ public class ProductController {
 		productDAO.insertProduct(product);
 
 		// Multipart File Upload
-		String path = "C:\\Users\\Adminstrator\\Documents\\sandip\\project\\electronicstore\\src\\main\\webapp\\assets\\productimages\\";
+		String path = "C:\\Users\\Adminstrator\\Documents\\sandip\\electronicstore\\electronicstore\\src\\main\\webapp\\assets\\productimages\\";
 		path = path + "" + product.getProductId() + ".jpg";
 		System.out.println("Image Path is:" + path);
 		try {
@@ -86,6 +87,7 @@ public class ProductController {
 			bos.close();
 		} catch (Exception e) {
 			System.out.println("ERROR WHILE IMAGE INPUT");
+			e.printStackTrace();
 		}
 		// End Multipart File Upload
 

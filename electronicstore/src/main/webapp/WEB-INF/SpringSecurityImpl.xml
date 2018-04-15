@@ -14,7 +14,7 @@ http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
 http://www.springframework.org/schema/security
 http://www.springframework.org/schema/security/spring-security.xsd">
 
-<security:http pattern="/resources/**" security="none"/>
+<security:http pattern="/resources/**" security="none" />
 
 	<security:http>
 		<intercept-url pattern="/admin/manage/**" access="hasAuthority('admin')" />

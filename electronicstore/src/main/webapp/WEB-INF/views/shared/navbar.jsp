@@ -40,7 +40,7 @@
 				</ul>
 
 				<form class="navbar-form navbar-left"
-					action="${contextRoot}/serach/product">
+					action="${contextRoot}/search/product">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search"
 							name="search" value="${search}" required>
@@ -82,24 +82,32 @@
 			</div>
 			<div class="collapse navbar-collapse" id="MyNavbar">
 				<ul class="nav navbar-nav">
-					<li id="home"><a href="${contextRoot}/home"
+					<li id="home"><a href="${contextRoot}/user/home"
 						style="font-size: 20px">Home</a></li>
 					<li id="listProducts"><a
-						href="${contextRoot}/show/all/products" style="font-size: 20px">View
-							Products</a></li>
+						href="${contextRoot}/user/show/all/products"
+						style="font-size: 20px">View Products</a></li>
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li id="cart"><a href="${contextRoot}/user/cart"><i
 							class="fa fa-shopping-cart fa-2x">(${cartitems})</i></a></li>
-					<li id="login"><a href="${contextRoot}/logout"
-						style="font-size: 20px"><span
-							class="glyphicon glyphicon-log-out" style="font-size: 20px"></span>
-							Logout</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" style="font-size: 20px">${user.username}<b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="${contextRoot}/myorders"
+								style="font-size: 20px">Orders</a></li>
+							<li><a href="${contextRoot}/editprofile"
+								style="font-size: 20px">Profile</a></li>
+							<li><a href="${contextRoot}/logout" style="font-size: 20px"><span
+									class="glyphicon glyphicon-log-out" style="font-size: 20px"></span>
+									Logout</a></li>
+						</ul></li>
 				</ul>
 
 				<form class="navbar-form navbar-left"
-					action="${contextRoot}/serach/product">
+					action="${contextRoot}/user/search/product">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search"
 							name="search" value="${search}" required>
@@ -155,10 +163,18 @@
 						style="font-size: 20px">Manage Supplier</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li id="login"><a href="${contextRoot}/logout"
-						style="font-size: 20px"><span
-							class="glyphicon glyphicon-log-out" style="font-size: 20px"></span>
-							Logout</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" style="font-size: 20px">${user.username}<b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="${contextRoot}/myorders"
+								style="font-size: 20px">Orders</a></li>
+							<li><a href="${contextRoot}/editprofile"
+								style="font-size: 20px">Profile</a></li>
+							<li><a href="${contextRoot}/logout" style="font-size: 20px"><span
+									class="glyphicon glyphicon-log-out" style="font-size: 20px"></span>
+									Logout</a></li>
+						</ul></li>
 				</ul>
 
 			</div>
@@ -201,10 +217,18 @@
 						style="font-size: 20px">Manage Products</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li id="login"><a href="${contextRoot}/logout"
-						style="font-size: 20px"><span
-							class="glyphicon glyphicon-log-out" style="font-size: 20px"></span>
-							Logout</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" style="font-size: 20px">${user.username}<b
+							class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="${contextRoot}/myorders"
+								style="font-size: 20px">Orders</a></li>
+							<li><a href="${contextRoot}/editprofile"
+								style="font-size: 20px">Profile</a></li>
+							<li><a href="${contextRoot}/logout" style="font-size: 20px"><span
+									class="glyphicon glyphicon-log-out" style="font-size: 20px"></span>
+									Logout</a></li>
+						</ul></li>
 				</ul>
 
 			</div>

@@ -81,8 +81,8 @@ public class LoginRegisterController {
 			@RequestParam("lastname") String lastname, @RequestParam("number") String number,
 			@RequestParam("email") String email, @RequestParam("password") String password) {
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("title", "Home");
-		mv.addObject("userClickHome", true);
+		mv.addObject("title", "Login");
+		mv.addObject("userClickLogin", true);
 
 		User user = new User();
 		user.setActive(true);

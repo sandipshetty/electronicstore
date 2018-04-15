@@ -12,6 +12,7 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.electronicbackend.dto.Address;
 import com.electronicbackend.dto.Cart;
 import com.electronicbackend.dto.Category;
 import com.electronicbackend.dto.Product;
@@ -45,6 +46,7 @@ public class DatabaseConfiguration
 		sessionBuilder.addAnnotatedClass(User.class);
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(Cart.class);
+		sessionBuilder.addAnnotatedClass(Address.class);
 		SessionFactory sessionFactory = sessionBuilder.buildSessionFactory();
 		return sessionFactory;
 	}

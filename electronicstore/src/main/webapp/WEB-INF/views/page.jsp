@@ -132,8 +132,18 @@
 			<c:if test="${userClickCart == true}">
 				<%@include file="cart.jsp"%>
 			</c:if>
-
-
+			
+			
+			<!-- Load only when user click on profile-->
+			<c:if test="${userClickProfile == true}">
+				<%@include file="profile.jsp"%>
+			</c:if>
+			
+			<!-- Load only when user click on Buynow or checkout on cart-->
+			<c:if test="${userClickBuyNow == true}">
+				<%@include file="shippingAddress.jsp"%>
+			</c:if>
+			
 		</div>
 
 		<!-- Footer -->
