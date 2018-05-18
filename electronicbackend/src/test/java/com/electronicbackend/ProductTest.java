@@ -24,7 +24,7 @@ public class ProductTest {
 //
 //		}
 		Product product=productDAO.getProductById(4);
-		product.setActive(false);
+		product.setQuantity(4);
 		productDAO.updateProduct(product);
 		
 	}

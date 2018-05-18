@@ -15,7 +15,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.electronicbackend.dto.Address;
 import com.electronicbackend.dto.Cart;
 import com.electronicbackend.dto.Category;
+import com.electronicbackend.dto.Orders;
 import com.electronicbackend.dto.Product;
+import com.electronicbackend.dto.Review;
 import com.electronicbackend.dto.User;
 
 @Configuration
@@ -47,6 +49,8 @@ public class DatabaseConfiguration
 		sessionBuilder.addAnnotatedClass(Product.class);
 		sessionBuilder.addAnnotatedClass(Cart.class);
 		sessionBuilder.addAnnotatedClass(Address.class);
+		sessionBuilder.addAnnotatedClass(Orders.class);
+		sessionBuilder.addAnnotatedClass(Review.class);
 		SessionFactory sessionFactory = sessionBuilder.buildSessionFactory();
 		return sessionFactory;
 	}

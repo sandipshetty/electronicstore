@@ -68,11 +68,11 @@ public class ProductDAO
 		return list;
 	}
 	
-	public List<Product> getProductDetailsByUserId(int userId)
+	public List<Product> getProductDetailsBySupplierName(String supplierName)
 	{
 		Session session=sessionFactory.openSession();
-		Query query=session.createQuery("from Product p where p.userId=:userId");
-		query.setParameter("userId",userId);
+		Query query=session.createQuery("from Product p where p.supplierName=:supplierName");
+		query.setParameter("supplierName",supplierName);
 		List<Product> list=query.list();
 		session.close();
 		return list;
